@@ -27,16 +27,14 @@ if(isNaN(pixels) || pixels >= 100){
 
 for (let i = 1; i < pixels**2; i++){
     let newDiv = document.createElement("div")
-    newDiv.textContent = "red";
+    // newDiv.textContent = "red";
     newDiv.classList.add("squares")
     container.appendChild(newDiv)
 }
 
-container.setAttribute('style',
-    // updating the attribute with the following concatenated string:
-    'grid-template-columns: repeat(' + pixels + ', auto)');
+container.style["grid-template-columns"] =`repeat(${pixels},1fr)`;
+container.style["grid-template-rows"] =`repeat(${pixels},1fr)`;
 
-container.setAttribute('style',
-    // updating the attribute with the following concatenated string:
-    'grid-template-rows: repeat(' + pixels + ', auto)');    
+
+  
 

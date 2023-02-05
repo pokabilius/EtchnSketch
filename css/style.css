@@ -33,14 +33,14 @@ body{
 }
 
 .footer {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   text-align: center;
-  padding-top: 40px;
+  padding-bottom: 5px;
   
 }
 
 .flex{
-  padding-top: 40px;
+  padding-top: 15px;
   display: flex;
   justify-content: center;
   /* align-items: center; */
@@ -79,7 +79,7 @@ button{
     width: 600px;
     height: 600px;
     /* background-color: blue; */
-    border: 40px solid black;
+    border: 20px solid black;
     border-radius: 30px;
     box-shadow: 0 0 10px;
     grid-template-columns: repeat(1, 1fr);

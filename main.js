@@ -2,11 +2,15 @@
 
 const container = document.querySelector(".container")
 const color = document.getElementById("colorpicker").value
+console.log(color)
 const button = document.querySelector("#erase")
 const rubber = document.querySelector("#rubber")
+const randomBtn = document.querySelector('#random')
 let rubberIsclicked = false
 let rubberCounter = 0
-
+let randomIsclicked = false
+let randomCounter = 0
+let randomColor = 999999
 // Ask number of pixels from user
 
 let pixels = parseInt(prompt("How many pixels do you want to draw")) ;
@@ -30,7 +34,6 @@ if(isNaN(pixels) || pixels >= 100){
 
 for (let i = 1; i < pixels**2; i++){
     let newDiv = document.createElement("div")
-    // newDiv.textContent = "red";
     newDiv.classList.add("squares")
     
 
@@ -43,13 +46,29 @@ container.style["grid-template-rows"] =`repeat(${pixels},1fr)`;
 // Change pixel color
 
 function putColor(e) {
-    if (!rubberCounter){
+    if (!rubberIsclicked && !randomIsclicked){
         const color = document.getElementById("colorpicker").value
         e.target.style.backgroundColor = color
-        console.log("enter painter")
+
     }else if (rubberIsclicked){
         e.target.style.backgroundColor = "white"
-        console.log("enter rubber")
+
+    }else if (randomIsclicked){
+            
+        randomColor = Math.floor(Math.random()*999999)
+        console.log(randomColor)
+        while (randomColor.toString().length < 6) {
+            randomColor = Math.floor(Math.random()*999999)
+            if (randomColor.toString().length === 6){
+                break
+            }
+            
+        }
+        console.log(randomColor)
+
+        randomColor = `#${randomColor}`
+        e.target.style.backgroundColor = randomColor
+
 
     }
 }
@@ -68,25 +87,43 @@ button.addEventListener('click', ()=> {
 
 rubber.addEventListener('click', () => {
     rubberCounter += 1
-    console.log(rubberCounter)
     if (rubberCounter === 1 || rubberCounter % 2 !== 0){
         rubberIsclicked = true
+        randomIsclicked = false
+        randomBtn.classList.remove("clicked")
+        randomBtn.classList.add("unclicked")
+        randomCounter++
         rubber.classList.remove("uncklicked")
         rubber.classList.add("clicked")
     }else {
         rubberIsclicked = false
         rubber.classList.remove("clicked")
         rubber.classList.add("unclicked")
-        container.addEventListener('mouseover', putColor)
 
     }
-    console.log(`rubber is clicked:${rubberIsclicked}`)
 });
 
 container.addEventListener('mouseover', putColor)
     
+randomBtn.addEventListener('click', () => {
+    randomCounter += 1
+    if (randomCounter === 1 || randomCounter % 2 !== 0){
+        randomIsclicked = true
+        rubberIsclicked = false
+        rubberCounter++
+        rubber.classList.remove("clicked")
+        rubber.classList.add("unclicked")
+        randomBtn.classList.remove("uncklicked")
+        randomBtn.classList.add("clicked")
+    }else {
+        randomIsclicked = false
+        randomBtn.classList.remove("clicked")
+        randomBtn.classList.add("unclicked")
+
+    }
+    console.log(`random is clicked:${randomIsclicked}`)
+});
 
 
-
-  
+    
 

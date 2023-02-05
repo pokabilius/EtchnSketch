@@ -1,0 +1,104 @@
+@font-face {
+  font-family:"retro";
+  src: url(./fonts/Franchise.ttf);
+  
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  font-family: "retro";
+  font-size: 20px;
+  height: 100vh;
+  background: url(../images/bakcground.jpg) no-repeat center center/ cover;
+  
+}
+
+.color {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+  padding: 10px;
+  color: purple;
+}
+
+.title{
+  font-size: 5.5rem;
+  text-align: center;
+  padding: 40px;
+  /* background-color: red; */
+}
+
+.footer {
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 40px;
+  
+}
+
+.flex{
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  height: 100vh;
+  margin-right: 100px;
+  /* background-color: blue; */
+  
+}
+
+button{
+  width: 150px;
+  height: 50px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  font-family: "retro";
+  background-color: white;
+  color: purple;
+  box-shadow: 0 0 10px;
+
+}
+
+.menu{
+  display: flex;
+  font-size: 2.5rem;
+  flex-direction: column;
+  margin-right: 50px;
+  gap: 80px;
+  padding-top: 20px;
+  /* justify-content: center; */
+}
+
+
+.container {
+    display: grid;
+    grid-auto-flow: column dense;
+    width: 600px;
+    height: 600px;
+    /* background-color: blue; */
+    border: 40px solid black;
+    border-radius: 30px;
+    box-shadow: 0 0 10px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+
+  .squares {
+    background-color: white;
+    
+  }
+
+  button.clicked {
+    background-color: purple;
+    color: white;
+
+  }
+
+  buttton.unclicked {
+    background-color: white;
+    color: orange;
+  }

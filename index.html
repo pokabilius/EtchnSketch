@@ -6,12 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./main.js" defer></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
-    <div class="container">
-        <div class="squares"></div>        
-    </div>
+        <div class="title">Etch and Sketch</div>
+        <div class="flex">
+            <div class="menu">
+                <div class="color">
+                    <label for="colorpciker">Color Picker</label>
+                    <input type="color" id="colorpicker">
+
+                </div>
+                <button id="erase" class="unclicked">Erase</button>
+                <button id="rubber" class="unclicked">Rubber</button>
+                <button id="random" class="unclicked">Random</button>
+
+            </div>
+    
+            <div class="container">
+                <div class="squares"></div>        
+            </div>
+
+        </div>
+        <div class="footer">Copyright Pokabilius 2023</div>
+
 </body>
 </html>

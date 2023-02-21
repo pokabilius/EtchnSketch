@@ -2,6 +2,7 @@
 
 const container = document.querySelector(".container")
 const color = document.getElementById("colorpicker").value
+const gitIcon = document.getElementById("git")
 console.log(color)
 const button = document.querySelector("#erase")
 const rubber = document.querySelector("#rubber")
@@ -14,6 +15,16 @@ let randomColor = 999999
 // Ask number of pixels from user
 
 let pixels = parseInt(prompt("How many pixels do you want to draw")) ;
+
+gitIcon.addEventListener('mouseover', () => {
+    gitIcon.classList.add("fa-spin")
+})
+
+gitIcon.addEventListener('mouseout', () => {
+    gitIcon.classList.remove("fa-spin")
+})
+
+
 
 if(isNaN(pixels) || pixels >= 100){
     while(true){
@@ -89,10 +100,12 @@ rubber.addEventListener('click', () => {
     rubberCounter += 1
     if (rubberCounter === 1 || rubberCounter % 2 !== 0){
         rubberIsclicked = true
-        randomIsclicked = false
-        randomBtn.classList.remove("clicked")
-        randomBtn.classList.add("unclicked")
-        randomCounter++
+        if (randomIsclicked === true) {
+            randomIsclicked = false
+            randomBtn.classList.remove("clicked")
+            randomBtn.classList.add("unclicked")
+            randomCounter++
+        }
         rubber.classList.remove("uncklicked")
         rubber.classList.add("clicked")
     }else {
@@ -109,10 +122,12 @@ randomBtn.addEventListener('click', () => {
     randomCounter += 1
     if (randomCounter === 1 || randomCounter % 2 !== 0){
         randomIsclicked = true
-        rubberIsclicked = false
-        rubberCounter++
-        rubber.classList.remove("clicked")
-        rubber.classList.add("unclicked")
+        if (rubberIsclicked === true) {
+            rubberIsclicked = false
+            rubberCounter++
+            rubber.classList.remove("clicked")
+            rubber.classList.add("unclicked")
+        }
         randomBtn.classList.remove("uncklicked")
         randomBtn.classList.add("clicked")
     }else {

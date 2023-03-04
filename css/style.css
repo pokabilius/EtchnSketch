@@ -103,3 +103,12 @@ button{
     background-color: white;
     color: orange;
   }
+
+  .footer {
+    padding-bottom: 20px;
+    font-size: 2.5rem;
+  }
+
+  #git {
+    color: black;
+  }
